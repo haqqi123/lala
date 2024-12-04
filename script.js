@@ -9,7 +9,7 @@ const pages = [
         <div id="gallery">
             ${Array(14)
                 .fill("")
-                .map((_, i) => `<img src="assets/photo${i + 1}.jpg" alt="Foto ${i + 1}">`)
+                .map((_, i) => `<img src="photo${i + 1}.jpg" alt="Foto ${i + 1}">`)
                 .join("")}
         </div>
     `,
