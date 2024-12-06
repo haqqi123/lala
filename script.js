@@ -4,15 +4,24 @@ const pages = [
     "happy besdeee lalaaa🎂, mogaa lalaaa selalu dikelilingi orang baiiikkkk.",
     "jugaaa sekali lagi aku mo ngucapin terima kasiiih ke lalaa buat semuanyaaa, buaat lalaa yang selaluuu maafiinn dan ngasiii akuuu banyaakk kesempatan padahal akuuu sering bikin lalaa kecewaaa. makasiiii jugaaa yaaa laaa udaaa mo nemeniin akuu mam, udaaa bikiin akuu seneng, udaaa mo kuajak nonton, tuuuss apalagi yak, pokokkk akuu timaaciiww ke lalaaa buat semuanyaaa, buat lalaa yang mauuu nemeniiin akuuu padahal lalaa sibuuukk bangeett. akuuu jugaa belajaarr banyaak dariii lalaaaa, entah ituuu tentang gimana ngertiiin perasaannya orang tuuss bagi prioritas amaa masiii banyaakk lah pokookkk. terima kasih yaaa lalaaaa, buat setiap tawa, bahagian dan care darii lalaa.",
     "see you on top lalaaaa👋, jaga dirii baik baik yaaa.",
-    `
-        <div id="gallery-title">i still miss butterfly era with you hehe</div>
-        <div id="gallery">
-            ${Array(14)
-                .fill("")
-                .map((_, i) => `<img src="photo${i + 1}.jpg" alt="Foto ${i + 1}">`)
-                .join("")}
-        </div>
-    `,
+const driveLinks = [
+    "https://drive.google.com/file/d/1Qk1FHrDWehxjWgNNqRB1nvORwwWixgvS/view?usp=sharing",
+    // Tambahkan lebih banyak link di sini
+];
+
+const galleryHTML = driveLinks
+    .map((link, i) => {
+        // Konversi link berbagi menjadi direct link
+        const directLink = link.replace(
+            /https:\/\/drive\.google\.com\/file\/d\/(.*?)\/view\?usp=sharing/,
+            "https://drive.google.com/uc?export=view&id=$1"
+        );
+        return `<img src="${directLink}" alt="Foto ${i + 1}">`;
+    })
+    .join("");
+
+document.getElementById("gallery").innerHTML = galleryHTML;
+,
 ];
 
 // Keep track of the current page index
