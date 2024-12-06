@@ -1,6 +1,5 @@
-// Links to resources
+// Links to photos
 const driveLinks = {
-    music: "https://your-username.github.io/repo-name/assets/music/love-song.mp3",
     photos: [
         "https://haqqi123.github.io/lala/assets/photos/photo1.jpg",
         "https://haqqi123.github.io/lala/assets/photos/photo2.jpg",
@@ -20,10 +19,6 @@ const driveLinks = {
     ],
 };
 
-// Load music
-const musicElement = document.getElementById("music-src");
-musicElement.src = driveLinks.music;
-
 // Populate gallery
 const galleryElement = document.getElementById("gallery");
 driveLinks.photos.forEach((photo, index) => {
@@ -38,7 +33,7 @@ const pages = [
     "alooo lala as ngookk paliiing cantiiikkk seduniaaaaaaaa.",
     "happy besdeee lalaaa🎂, mogaa lalaaa selalu dikelilingi orang baiiikkkk.",
     "jugaaa sekali lagi aku mo ngucapin terima kasiiih ke lalaa buat semuanyaaa.",
-    "see you on top lalaaaa👋, jaga dirii baik baik yaaa.",
+    "see you on top lalaaaa👋, jaga dirii baik baik dan semoga impianmuu tecapai yaaa.",
 ];
 let currentPage = 0;
 const contentDisplay = document.getElementById("text-display");
