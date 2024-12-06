@@ -1,76 +1,120 @@
-// Tautan Google Drive
-const driveLinks = {
-    music: "https://drive.google.com/file/d/1DFcDy3MojjrUsFM5j_6RmqLaCGiiv1BG/view?usp=drive_link",
-    photos: [
-        "https://drive.google.com/file/d/1Qk1FHrDWehxjWgNNqRB1nvORwwWixgvS/view?usp=sharing",
-        "https://drive.google.com/file/d/1Qk1FHrDWehxjWgNNqRB1nvORwwWixgvS/view?usp=sharing",
-        "https://drive.google.com/file/d/1GaM1fAn0nZ-mZnX6cJDfFW7ZwRlAevzK/view?usp=drive_link",
-        "https://drive.google.com/file/d/1UCqCV3r3BHMb0vSX-bAyh4YUkywwWPYd/view?usp=drive_link",
-        "https://drive.google.com/file/d/1n8LKsDkPBsCDu_wRi3_Ra8H7x-__mgir/view?usp=drive_link",
-        "https://drive.google.com/file/d/1fNhx00JESgL3pLSrvXlrMavVhU0h5Aqv/view?usp=drive_link",
-        "https://drive.google.com/file/d/1GMUb_J8YzxWsOcHf8qUAebv_oFz3dl0Z/view?usp=drive_link",
-        "https://drive.google.com/file/d/1TInyOxMm2inXYOD8LHZRoaRu28HO_xus/view?usp=drive_link",
-        "https://drive.google.com/file/d/1RAZoapip24pn8JtLnM13wQSVbk753a_5/view?usp=drive_link",
-        "https://drive.google.com/file/d/1WPNb5s06H9mq9qqROvwxmzCyaU25p_ID/view?usp=drive_link",
-        "https://drive.google.com/file/d/1upwe4VJxitRAfvLMl91UbNB911-TgvYq/view?usp=drive_link",
-        "https://drive.google.com/file/d/1uz1nYvA9NWFudEqAFsf6k9NHSKn6p7TS/view?usp=drive_link",
-        "https://drive.google.com/file/d/1N_pptY5yJ8WUQybNBbf26l5h__Mqbp0T/view?usp=drive_link",
-        "https://drive.google.com/file/d/1pTw2d02nikHEZr5XWFGdrlIV-XGxeaVx/view?usp=drive_link",
-    ],
-};
-
-// Fungsi untuk mengubah link berbagi Google Drive menjadi direct link
-function convertToDirectLink(link) {
-    return link.replace(
-        /https:\/\/drive\.google\.com\/file\/d\/(.*?)\/view\?usp=.*$/,
-        "https://drive.google.com/uc?export=view&id=$1"
-    );
+body {
+    font-family: 'Amatic SC', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0;
+    color: #333;
+    text-align: center;
+    overflow: hidden;
 }
 
-// Atur lagu latar
-const backgroundMusic = document.getElementById("background-music");
-backgroundMusic.src = convertToDirectLink(driveLinks.music);
+.container {
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
-// Array konten halaman
-const pages = [
-    "alooo lala as ngookk paliiing cantiiikkk seduniaaaaaaaa.",
-    "happy besdeee lalaaa🎂, mogaa lalaaa selalu dikelilingi orang baiiikkkk.",
-    "see you on top lalaaaa👋, jaga dirii baik baik yaaa.",
-    `
-        <div id="gallery-title">i still miss butterfly era with you hehe</div>
-        <div id="gallery">
-            ${driveLinks.photos
-                .map(
-                    (link, i) =>
-                        `<img src="${convertToDirectLink(link)}" alt="Foto ${i + 1}">`
-                )
-                .join("")}
-        </div>
-    `,
-];
+#content {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+    text-align: center;
+    font-size: 1.8em;
+    color: #e91e63;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
 
-// Indeks halaman saat ini
-let currentPage = 0;
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    background: linear-gradient(45deg, #e91e63, #f06292);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-// Elemen HTML
-const contentDisplay = document.getElementById("content");
-const textDisplay = document.getElementById("text-display");
-const nextButton = document.getElementById("next-btn");
+button:hover {
+    background: linear-gradient(45deg, #f06292, #e91e63);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
 
-// Fungsi untuk menangani perubahan halaman
-nextButton.addEventListener("click", () => {
-    contentDisplay.style.opacity = "0";
-    contentDisplay.style.transform = "translateY(20px)";
+button:active {
+    transform: scale(0.95);
+}
 
-    setTimeout(() => {
-        if (currentPage < pages.length - 1) {
-            currentPage++;
-            textDisplay.innerHTML = pages[currentPage];
-            if (currentPage === pages.length - 1) {
-                nextButton.style.display = "none";
-            }
-        }
-        contentDisplay.style.opacity = "1";
-        contentDisplay.style.transform = "translateY(0)";
-    }, 1000);
-});
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Ornamen Love dengan Huruf L */
+.ornament {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #f06292, #f8bbd0);
+    clip-path: path("M 60 20 C 20 -20, -30 40, 60 110 C 150 40, 100 -20, 60 20 Z");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5em;
+    color: #fff;
+    animation: float 4s infinite;
+    z-index: -1;
+}
+
+.ornament1 {
+    top: 30px;
+    left: 50px;
+}
+
+.ornament2 {
+    bottom: 50px;
+    right: 50px;
+}
+
+/* Animasi Floating */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Styles for the photo gallery */
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+#gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid #f06292;
+}
+
+#gallery-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #e91e63;
+    text-align: center;
+    white-space: nowrap;
+}
